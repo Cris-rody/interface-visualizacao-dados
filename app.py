@@ -11,7 +11,7 @@ import requests
 st.set_page_config(page_title="Datux: Facilitando a visualização de dados", layout="wide")
 
 # Menu lateral
-st.sidebar.title("⚙️ Mais")
+st.sidebar.title("⚙️ Mais Recursos")
 menu_opcao = st.sidebar.radio("Navegação", ["Visualização", "Sobre / Ajuda"])
 
 # Campo para relatar problema no menu lateral (envia email via mailto)
@@ -40,16 +40,18 @@ if menu_opcao == "Sobre / Ajuda":
 
 ################################################################################################################
 
-# CSS personalizado
+# CSS personalizado com fundo degradê
 st.markdown("""
     <style>
         html, body, [class*="css"] {
             font-family: Verdana, sans-serif;
+            background: linear-gradient(160deg, #ffe5e5, #fff0cc, #ffffe0);
+            background-attachment: fixed;
         }
         .titulo {
             font-size: 30px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #5c0808;
             text-align: center;
         }
         .descricao {
@@ -59,8 +61,8 @@ st.markdown("""
             text-align: center;
         }
         .assinatura {
-            font-size: 13px;
-            color: #7f8c8d;
+            font-size: 14px;
+            color: #392020;
             margin-top: 30px;
             text-align: center;
         }
@@ -101,13 +103,23 @@ st.markdown("""
             border: 1px solid #ddd;
             resize: vertical;
         }
+        .rodape {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin-top: 80px;
+            padding: 20px 10px;
+            border-top: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
     </style>
 """, unsafe_allow_html=True)
 
+
 ################################################################################################################
 
-# Título e descrição
-st.markdown('<div class="titulo">Plataforma de Visualização automatizada de Dados</div>', unsafe_allow_html=True)
+# Título com emoji
+st.markdown('<div class="titulo">🚀 Datux: Facilitando a visualização de dados</div>', unsafe_allow_html=True)
 st.markdown('<div class="descricao">Ferramenta interativa para visualização de dados, a partir de uma base em formato CSV ou XLSX, com suporte de IA para sugerir a melhor representação das colunas escolhidas e analisar o gráfico.</div>', unsafe_allow_html=True)
 
 # Upload do arquivo CSV ou XLSX
@@ -246,5 +258,9 @@ if arquivo:
                     st.warning(f"⚠️ Erro na comunicação com IA: {e}")
         st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="assinatura">📌 Desenvolvido por Cristiane Antunes Rodrigues – 2025</div>', unsafe_allow_html=True)
+st.markdown("""
+    <div class="rodape">
+        Desenvolvido por Cristiane Antunes Rodrigues – 2025
+    </div>
+""", unsafe_allow_html=True)
 
