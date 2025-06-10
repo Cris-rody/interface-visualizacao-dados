@@ -112,9 +112,13 @@ st.markdown("""
             border-top: 1px solid #ddd;
             background-color: rgba(255, 255, 255, 0.4);
         }
+        .stRadio > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
     </style>
 """, unsafe_allow_html=True)
-
 
 ################################################################################################################
 
@@ -144,7 +148,6 @@ if arquivo:
 
     st.markdown('<hr>', unsafe_allow_html=True)
 
-    # Enunciado simples
     st.markdown("Escolha as colunas para visualizar no gráfico:")
 
     seletores = st.columns(2)
@@ -223,8 +226,7 @@ if arquivo:
 
             st.plotly_chart(fig, use_container_width=True)
 
-            # Botões lado a lado: baixar PNG + incorporar
-            col_btn1, col_btn2 = st.columns([1,1])
+            col_btn1, col_btn2 = st.columns([1, 1])
             with col_btn1:
                 st.download_button(
                     label="🔽 Baixar gráfico como PNG",
@@ -263,4 +265,5 @@ st.markdown("""
         Desenvolvido por Cristiane Antunes Rodrigues – 2025
     </div>
 """, unsafe_allow_html=True)
+
 
